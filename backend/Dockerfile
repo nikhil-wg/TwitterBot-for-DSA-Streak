@@ -1,20 +1,24 @@
-# Use an official lightweight Python image
-FROM python:3.11
+# Use an official Python image that supports Tesseract
+FROM ubuntu:22.04
 
-# Install system dependencies
-RUN apt-get update && apt-get install -y tesseract-ocr
+# Install dependencies
+RUN apt-get update && apt-get install -y \
+    tesseract-ocr \
+    python3 \
+    python3-pip \
+    && rm -rf /var/lib/apt/lists/*
 
 # Set the working directory
 WORKDIR /app
 
-# Copy project files to the container
-COPY . .
+# Copy project files
+COPY . /app/
 
 # Install Python dependencies
-RUN pip install --no-cache-dir -r requirements.txt
+RUN pip3 install --no-cache-dir -r requirements.txt
 
-# Expose the port FastAPI runs on
+# Expose the application port
 EXPOSE 8000
 
-# Run the FastAPI app with Uvicorn
+# Start the application
 CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]
