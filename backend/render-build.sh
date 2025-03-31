@@ -1,7 +1,5 @@
-#!/usr/bin/env bash
-# Install Tesseract OCR without sudo
-echo "Installing Tesseract OCR..."
-apt-get update && apt-get install -y tesseract-ocr
-
-# Install Python dependencies
-pip install -r requirements.txt
+mkdir -p tesseract
+cd tesseract
+wget https://github.com/tesseract-ocr/tesseract/releases/download/5.3.3/tesseract-5.3.3-linux-x86_64
+chmod +x tesseract-5.3.3-linux-x86_64
+cd ..

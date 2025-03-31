@@ -14,7 +14,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from google import genai
 import pytesseract
 
-pytesseract.pytesseract.tesseract_cmd = "/usr/bin/tesseract"
+pytesseract.pytesseract.tesseract_cmd = "./tesseract/tesseract-5.3.3-linux-x86_64"
 
 # Configure logging
 logging.basicConfig(level=logging.INFO)
