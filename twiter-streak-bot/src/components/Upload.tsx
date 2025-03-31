@@ -26,7 +26,7 @@ function App() {
         setLoading(true); // Start loading
 
         try {
-            const response = await axios.post("http://localhost:5000/upload", formData);
+            const response = await axios.post("https://twitterbot-for-dsa-streak.onrender.com/upload", formData);
             setMessage(response.data.message);
             setStreak(response.data.streak);
         } catch (error) {

@@ -12,6 +12,10 @@ from datetime import datetime, timedelta
 from dotenv import load_dotenv
 from fastapi.middleware.cors import CORSMiddleware
 from google import genai
+import pytesseract
+
+pytesseract.pytesseract.tesseract_cmd = "/usr/bin/tesseract"
+
 # Configure logging
 logging.basicConfig(level=logging.INFO)
 
